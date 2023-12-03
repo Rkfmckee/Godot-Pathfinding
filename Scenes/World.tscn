@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgfajuup1euqr"]
+
+[ext_resource type="PackedScene" uid="uid://qjx0iacwui7v" path="res://Scenes/Enemy.tscn" id="1_eqh6n"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3jlie"]
+vertices = PackedVector2Array(460, 427, 217, 571, 395, 275, 87, 419, 231, 172, 511, 39, 209, 117, 63, 279, 67, 47, 921, 600, 671, 582, 773, 478, 560, 613, 330, 605, 590, 464, 953, 239, 954, 106, 1106, 189, 1080, 479, 869, 84, 853, 234, 752, 301, 854, 363)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(6, 8, 5), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 0, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(4, 6, 5), PackedInt32Array(0, 2, 5, 19, 20, 21), PackedInt32Array(18, 9, 11, 22, 15), PackedInt32Array(20, 15, 22, 21), PackedInt32Array(0, 21, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(67, 47, 511, 39, 869, 84, 853, 234, 953, 239, 954, 106, 1106, 189, 1080, 479, 921, 600, 671, 582, 773, 478, 854, 363, 752, 301, 590, 464, 560, 613, 330, 605, 460, 427, 217, 571, 395, 275, 87, 419, 231, 172, 209, 117, 63, 279)])
+
+[node name="World" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_3jlie")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("movementTarget") instance=ExtResource("1_eqh6n")]
+position = Vector2(123, 132)
+movementTarget = NodePath("../NavTarget")
+
+[node name="NavTarget" type="Marker2D" parent="."]
+position = Vector2(369, 416)
