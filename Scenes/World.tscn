@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgfajuup1euqr"]
+[gd_scene load_steps=4 format=3 uid="uid://bgfajuup1euqr"]
 
 [ext_resource type="PackedScene" uid="uid://qjx0iacwui7v" path="res://Scenes/Enemy.tscn" id="1_eqh6n"]
+[ext_resource type="Script" path="res://Scripts/NavTarget.cs" id="2_6lwh5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3jlie"]
 vertices = PackedVector2Array(460, 427, 217, 571, 395, 275, 87, 419, 231, 172, 511, 39, 209, 117, 63, 279, 67, 47, 921, 600, 671, 582, 773, 478, 560, 613, 330, 605, 590, 464, 953, 239, 954, 106, 1106, 189, 1080, 479, 869, 84, 853, 234, 752, 301, 854, 363)
@@ -18,3 +19,4 @@ movementTarget = NodePath("../NavTarget")
 
 [node name="NavTarget" type="Marker2D" parent="."]
 position = Vector2(369, 416)
+script = ExtResource("2_6lwh5")

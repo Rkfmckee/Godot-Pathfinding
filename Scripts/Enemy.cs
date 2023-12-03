@@ -6,7 +6,7 @@ public partial class Enemy : CharacterBody2D
 	#region Fields
 
 	[Export] private float movementSpeed;
-	[Export] private Node2D movementTarget;
+	[Export] private NavTarget movementTarget;
 	[Export] private NavigationAgent2D navigationAgent;
 
 	#endregion
@@ -15,6 +15,8 @@ public partial class Enemy : CharacterBody2D
 
 	public override void _Ready()
 	{
+		movementTarget.NavTargetMoved += () => SetMovementTarget(movementTarget.Position);
+
 		navigationAgent.PathDesiredDistance = 4;
 		navigationAgent.TargetDesiredDistance = 4;
 
